@@ -1,0 +1,592 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Author {
+  _count: AuthorCount!
+  avatar: String!
+  id: ID!
+  name: String!
+  posts: [Post!]
+  profileUrl: String!
+}
+
+type AuthorCount {
+  posts: Int!
+}
+
+input AuthorCreateInput {
+  avatar: String!
+  id: String
+  name: String!
+  posts: PostCreateNestedManyWithoutAuthorInput
+  profileUrl: String!
+}
+
+input AuthorCreateNestedOneWithoutPostsInput {
+  connect: AuthorWhereUniqueInput
+  connectOrCreate: AuthorCreateOrConnectWithoutPostsInput
+  create: AuthorCreateWithoutPostsInput
+}
+
+input AuthorCreateOrConnectWithoutPostsInput {
+  create: AuthorCreateWithoutPostsInput!
+  where: AuthorWhereUniqueInput!
+}
+
+input AuthorCreateWithoutPostsInput {
+  avatar: String!
+  id: String
+  name: String!
+  profileUrl: String!
+}
+
+input AuthorOrderByWithRelationInput {
+  avatar: SortOrder
+  id: SortOrder
+  name: SortOrder
+  posts: PostOrderByRelationAggregateInput
+  profileUrl: SortOrder
+}
+
+input AuthorRelationFilter {
+  is: AuthorWhereInput
+  isNot: AuthorWhereInput
+}
+
+enum AuthorScalarFieldEnum {
+  avatar
+  id
+  name
+  profileUrl
+}
+
+input AuthorUpdateInput {
+  avatar: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutAuthorNestedInput
+  profileUrl: StringFieldUpdateOperationsInput
+}
+
+input AuthorUpdateOneWithoutPostsNestedInput {
+  connect: AuthorWhereUniqueInput
+  connectOrCreate: AuthorCreateOrConnectWithoutPostsInput
+  create: AuthorCreateWithoutPostsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: AuthorUpdateWithoutPostsInput
+  upsert: AuthorUpsertWithoutPostsInput
+}
+
+input AuthorUpdateWithoutPostsInput {
+  avatar: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  profileUrl: StringFieldUpdateOperationsInput
+}
+
+input AuthorUpsertWithoutPostsInput {
+  create: AuthorCreateWithoutPostsInput!
+  update: AuthorUpdateWithoutPostsInput!
+}
+
+input AuthorWhereInput {
+  AND: [AuthorWhereInput!]
+  NOT: [AuthorWhereInput!]
+  OR: [AuthorWhereInput!]
+  avatar: StringFilter
+  id: StringFilter
+  name: StringFilter
+  posts: PostListRelationFilter
+  profileUrl: StringFilter
+}
+
+input AuthorWhereUniqueInput {
+  id: String
+}
+
+type Category {
+  _count: CategoryCount!
+  id: ID!
+  name: String!
+  posts: [Post!]
+}
+
+type CategoryCount {
+  posts: Int!
+}
+
+input CategoryCreateInput {
+  id: String
+  name: String!
+  posts: PostCreateNestedManyWithoutCategoryInput
+}
+
+input CategoryCreateNestedOneWithoutPostsInput {
+  connect: CategoryWhereUniqueInput
+  connectOrCreate: CategoryCreateOrConnectWithoutPostsInput
+  create: CategoryCreateWithoutPostsInput
+}
+
+input CategoryCreateOrConnectWithoutPostsInput {
+  create: CategoryCreateWithoutPostsInput!
+  where: CategoryWhereUniqueInput!
+}
+
+input CategoryCreateWithoutPostsInput {
+  id: String
+  name: String!
+}
+
+input CategoryOrderByWithRelationInput {
+  id: SortOrder
+  name: SortOrder
+  posts: PostOrderByRelationAggregateInput
+}
+
+input CategoryRelationFilter {
+  is: CategoryWhereInput
+  isNot: CategoryWhereInput
+}
+
+enum CategoryScalarFieldEnum {
+  id
+  name
+}
+
+input CategoryUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutCategoryNestedInput
+}
+
+input CategoryUpdateOneWithoutPostsNestedInput {
+  connect: CategoryWhereUniqueInput
+  connectOrCreate: CategoryCreateOrConnectWithoutPostsInput
+  create: CategoryCreateWithoutPostsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: CategoryUpdateWithoutPostsInput
+  upsert: CategoryUpsertWithoutPostsInput
+}
+
+input CategoryUpdateWithoutPostsInput {
+  id: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+}
+
+input CategoryUpsertWithoutPostsInput {
+  create: CategoryCreateWithoutPostsInput!
+  update: CategoryUpdateWithoutPostsInput!
+}
+
+input CategoryWhereInput {
+  AND: [CategoryWhereInput!]
+  NOT: [CategoryWhereInput!]
+  OR: [CategoryWhereInput!]
+  id: StringFilter
+  name: StringFilter
+  posts: PostListRelationFilter
+}
+
+input CategoryWhereUniqueInput {
+  id: String
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DateTimeFieldUpdateOperationsInput {
+  set: DateTime
+}
+
+input DateTimeFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeFilter
+  notIn: [DateTime!]
+}
+
+type Mutation {
+  createAuthor(create: AuthorCreateInput!): Author!
+  createCategory(create: CategoryCreateInput!): Category!
+  createPost(create: PostCreateInput!): Post!
+  deleteAuthor(where: AuthorWhereUniqueInput!): Author!
+  deleteCategory(where: CategoryWhereUniqueInput!): Category!
+  deletePost(where: PostWhereUniqueInput!): Post!
+  updateAuthor(id: String!, updateAuthorInput: AuthorUpdateInput!): Author!
+  updateCategory(id: String!, updateCategoryInput: CategoryUpdateInput!): Category!
+  updatePost(id: String!, updatePostInput: PostUpdateInput!): Post!
+}
+
+input NestedDateTimeFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeFilter
+  notIn: [DateTime!]
+}
+
+input NestedStringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input NestedStringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringNullableFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+type Post {
+  author: Author
+  authorId: String
+  category: Category
+  categoryId: String
+  content: String!
+  cover: String!
+  createdAt: DateTime!
+  description: String!
+  id: ID!
+  title: String!
+  updatedAt: DateTime!
+}
+
+input PostCreateInput {
+  author: AuthorCreateNestedOneWithoutPostsInput
+  category: CategoryCreateNestedOneWithoutPostsInput
+  content: String!
+  cover: String!
+  createdAt: DateTime
+  description: String!
+  id: String
+  title: String!
+  updatedAt: DateTime
+}
+
+input PostCreateManyAuthorInput {
+  categoryId: String
+  content: String!
+  cover: String!
+  createdAt: DateTime
+  description: String!
+  id: String
+  title: String!
+  updatedAt: DateTime
+}
+
+input PostCreateManyAuthorInputEnvelope {
+  data: [PostCreateManyAuthorInput!]!
+  skipDuplicates: Boolean
+}
+
+input PostCreateManyCategoryInput {
+  authorId: String
+  content: String!
+  cover: String!
+  createdAt: DateTime
+  description: String!
+  id: String
+  title: String!
+  updatedAt: DateTime
+}
+
+input PostCreateManyCategoryInputEnvelope {
+  data: [PostCreateManyCategoryInput!]!
+  skipDuplicates: Boolean
+}
+
+input PostCreateNestedManyWithoutAuthorInput {
+  connect: [PostWhereUniqueInput!]
+  connectOrCreate: [PostCreateOrConnectWithoutAuthorInput!]
+  create: [PostCreateWithoutAuthorInput!]
+  createMany: PostCreateManyAuthorInputEnvelope
+}
+
+input PostCreateNestedManyWithoutCategoryInput {
+  connect: [PostWhereUniqueInput!]
+  connectOrCreate: [PostCreateOrConnectWithoutCategoryInput!]
+  create: [PostCreateWithoutCategoryInput!]
+  createMany: PostCreateManyCategoryInputEnvelope
+}
+
+input PostCreateOrConnectWithoutAuthorInput {
+  create: PostCreateWithoutAuthorInput!
+  where: PostWhereUniqueInput!
+}
+
+input PostCreateOrConnectWithoutCategoryInput {
+  create: PostCreateWithoutCategoryInput!
+  where: PostWhereUniqueInput!
+}
+
+input PostCreateWithoutAuthorInput {
+  category: CategoryCreateNestedOneWithoutPostsInput
+  content: String!
+  cover: String!
+  createdAt: DateTime
+  description: String!
+  id: String
+  title: String!
+  updatedAt: DateTime
+}
+
+input PostCreateWithoutCategoryInput {
+  author: AuthorCreateNestedOneWithoutPostsInput
+  content: String!
+  cover: String!
+  createdAt: DateTime
+  description: String!
+  id: String
+  title: String!
+  updatedAt: DateTime
+}
+
+input PostListRelationFilter {
+  every: PostWhereInput
+  none: PostWhereInput
+  some: PostWhereInput
+}
+
+input PostOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input PostOrderByWithRelationInput {
+  author: AuthorOrderByWithRelationInput
+  authorId: SortOrder
+  category: CategoryOrderByWithRelationInput
+  categoryId: SortOrder
+  content: SortOrder
+  cover: SortOrder
+  createdAt: SortOrder
+  description: SortOrder
+  id: SortOrder
+  title: SortOrder
+  updatedAt: SortOrder
+}
+
+enum PostScalarFieldEnum {
+  authorId
+  categoryId
+  content
+  cover
+  createdAt
+  description
+  id
+  title
+  updatedAt
+}
+
+input PostScalarWhereInput {
+  AND: [PostScalarWhereInput!]
+  NOT: [PostScalarWhereInput!]
+  OR: [PostScalarWhereInput!]
+  authorId: StringNullableFilter
+  categoryId: StringNullableFilter
+  content: StringFilter
+  cover: StringFilter
+  createdAt: DateTimeFilter
+  description: StringFilter
+  id: StringFilter
+  title: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input PostUpdateInput {
+  author: AuthorUpdateOneWithoutPostsNestedInput
+  category: CategoryUpdateOneWithoutPostsNestedInput
+  content: StringFieldUpdateOperationsInput
+  cover: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PostUpdateManyMutationInput {
+  content: StringFieldUpdateOperationsInput
+  cover: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PostUpdateManyWithWhereWithoutAuthorInput {
+  data: PostUpdateManyMutationInput!
+  where: PostScalarWhereInput!
+}
+
+input PostUpdateManyWithWhereWithoutCategoryInput {
+  data: PostUpdateManyMutationInput!
+  where: PostScalarWhereInput!
+}
+
+input PostUpdateManyWithoutAuthorNestedInput {
+  connect: [PostWhereUniqueInput!]
+  connectOrCreate: [PostCreateOrConnectWithoutAuthorInput!]
+  create: [PostCreateWithoutAuthorInput!]
+  createMany: PostCreateManyAuthorInputEnvelope
+  delete: [PostWhereUniqueInput!]
+  deleteMany: [PostScalarWhereInput!]
+  disconnect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
+  updateMany: [PostUpdateManyWithWhereWithoutAuthorInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
+}
+
+input PostUpdateManyWithoutCategoryNestedInput {
+  connect: [PostWhereUniqueInput!]
+  connectOrCreate: [PostCreateOrConnectWithoutCategoryInput!]
+  create: [PostCreateWithoutCategoryInput!]
+  createMany: PostCreateManyCategoryInputEnvelope
+  delete: [PostWhereUniqueInput!]
+  deleteMany: [PostScalarWhereInput!]
+  disconnect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutCategoryInput!]
+  updateMany: [PostUpdateManyWithWhereWithoutCategoryInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutCategoryInput!]
+}
+
+input PostUpdateWithWhereUniqueWithoutAuthorInput {
+  data: PostUpdateWithoutAuthorInput!
+  where: PostWhereUniqueInput!
+}
+
+input PostUpdateWithWhereUniqueWithoutCategoryInput {
+  data: PostUpdateWithoutCategoryInput!
+  where: PostWhereUniqueInput!
+}
+
+input PostUpdateWithoutAuthorInput {
+  category: CategoryUpdateOneWithoutPostsNestedInput
+  content: StringFieldUpdateOperationsInput
+  cover: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PostUpdateWithoutCategoryInput {
+  author: AuthorUpdateOneWithoutPostsNestedInput
+  content: StringFieldUpdateOperationsInput
+  cover: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PostUpsertWithWhereUniqueWithoutAuthorInput {
+  create: PostCreateWithoutAuthorInput!
+  update: PostUpdateWithoutAuthorInput!
+  where: PostWhereUniqueInput!
+}
+
+input PostUpsertWithWhereUniqueWithoutCategoryInput {
+  create: PostCreateWithoutCategoryInput!
+  update: PostUpdateWithoutCategoryInput!
+  where: PostWhereUniqueInput!
+}
+
+input PostWhereInput {
+  AND: [PostWhereInput!]
+  NOT: [PostWhereInput!]
+  OR: [PostWhereInput!]
+  author: AuthorRelationFilter
+  authorId: StringNullableFilter
+  category: CategoryRelationFilter
+  categoryId: StringNullableFilter
+  content: StringFilter
+  cover: StringFilter
+  createdAt: DateTimeFilter
+  description: StringFilter
+  id: StringFilter
+  title: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input PostWhereUniqueInput {
+  id: String
+}
+
+type Query {
+  getAuthor(where: AuthorWhereUniqueInput!): Author!
+  getAuthors(cursor: AuthorWhereUniqueInput, distinct: [AuthorScalarFieldEnum!], orderBy: [AuthorOrderByWithRelationInput!], skip: Int, take: Int, where: AuthorWhereInput): [Author!]!
+  getCategories(cursor: CategoryWhereUniqueInput, distinct: [CategoryScalarFieldEnum!], orderBy: [CategoryOrderByWithRelationInput!], skip: Int, take: Int, where: CategoryWhereInput): [Category!]!
+  getCategory(where: CategoryWhereUniqueInput!): Category!
+  getPost(where: PostWhereUniqueInput!): Post!
+  getPosts(cursor: PostWhereUniqueInput, distinct: [PostScalarFieldEnum!], orderBy: [PostOrderByWithRelationInput!], skip: Int, take: Int, where: PostWhereInput): [Post!]!
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringNullableFilter
+  notIn: [String!]
+  startsWith: String
+}
