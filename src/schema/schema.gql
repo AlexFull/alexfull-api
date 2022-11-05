@@ -567,7 +567,7 @@ type Query {
   getCategories(cursor: CategoryWhereUniqueInput, distinct: [CategoryScalarFieldEnum!], orderBy: [CategoryOrderByWithRelationInput!], skip: Int, take: Int, where: CategoryWhereInput): [Category!]!
   getCategory(where: CategoryWhereUniqueInput!): Category!
   getPost(where: PostWhereUniqueInput!): Post!
-  getPosts(cursor: PostWhereUniqueInput, distinct: [PostScalarFieldEnum!], orderBy: [PostOrderByWithRelationInput!], skip: Int, take: Int, where: PostWhereInput): [Post!]!
+  getPosts(cursor: PostWhereUniqueInput, distinct: [PostScalarFieldEnum!], orderBy: [PostOrderByWithRelationInput!], orderByPostsArgs: PostOrderByWithRelationInput!, skip: Int, take: Int, where: PostWhereInput, wherePostsArgs: PostWhereInput!): [Post!]!
 }
 
 enum SortOrder {

@@ -1,11 +1,13 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { PostsService } from './posts.service';
 import { DeleteOnePostArgs } from 'src/types/post/delete-one-post.args';
 import { FindManyPostArgs } from 'src/types/post/find-many-post.args';
 import { FindUniquePostArgs } from 'src/types/post/find-unique-post.args';
 import { PostCreateInput } from 'src/types/post/post-create.input';
+import { PostOrderByWithRelationInput } from 'src/types/post/post-order-by-with-relation.input';
 import { PostUpdateInput } from 'src/types/post/post-update.input';
+import { PostWhereInput } from 'src/types/post/post-where.input';
 import { Post } from 'src/types/post/post.model';
+import { PostsService } from './posts.service';
 
 @Resolver(() => Post)
 export class PostsResolver {
@@ -17,8 +19,18 @@ export class PostsResolver {
   }
 
   @Query(() => [Post])
-  async getPosts(@Args() findManyPostArgs: FindManyPostArgs): Promise<Post[]> {
-    return await this.postsService.getPosts(findManyPostArgs);
+  async getPosts(
+    @Args() findManyPostArgs: FindManyPostArgs,
+    @Args('orderByPostsArgs')
+    orderByPostsArgs: PostOrderByWithRelationInput,
+    @Args('wherePostsArgs')
+    wherePostsArgs: PostWhereInput,
+  ): Promise<Post[]> {
+    return await this.postsService.getPosts(
+      findManyPostArgs,
+      orderByPostsArgs,
+      wherePostsArgs,
+    );
   }
 
   @Query(() => Post)

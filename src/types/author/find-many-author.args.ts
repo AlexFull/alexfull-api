@@ -9,22 +9,23 @@ import { AuthorScalarFieldEnum } from './author-scalar-field.enum';
 
 @ArgsType()
 export class FindManyAuthorArgs {
-  @Field(() => AuthorWhereInput, { nullable: true })
-  @Type(() => AuthorWhereInput)
-  where?: AuthorWhereInput;
 
-  @Field(() => [AuthorOrderByWithRelationInput], { nullable: true })
-  orderBy?: Array<AuthorOrderByWithRelationInput>;
+    @Field(() => AuthorWhereInput, {nullable:true})
+    @Type(() => AuthorWhereInput)
+    where?: AuthorWhereInput;
 
-  @Field(() => AuthorWhereUniqueInput, { nullable: true })
-  cursor?: AuthorWhereUniqueInput;
+    @Field(() => [AuthorOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<AuthorOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => AuthorWhereUniqueInput, {nullable:true})
+    cursor?: AuthorWhereUniqueInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => [AuthorScalarFieldEnum], { nullable: true })
-  distinct?: Array<keyof typeof AuthorScalarFieldEnum>;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+
+    @Field(() => [AuthorScalarFieldEnum], {nullable:true})
+    distinct?: Array<keyof typeof AuthorScalarFieldEnum>;
 }
