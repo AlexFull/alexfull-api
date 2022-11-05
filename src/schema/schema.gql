@@ -5,10 +5,12 @@
 type Author {
   _count: AuthorCount!
   avatar: String!
+  createdAt: DateTime!
   id: ID!
   name: String!
   posts: [Post!]
   profileUrl: String!
+  updatedAt: DateTime!
 }
 
 type AuthorCount {
@@ -17,10 +19,12 @@ type AuthorCount {
 
 input AuthorCreateInput {
   avatar: String!
+  createdAt: DateTime
   id: String
   name: String!
   posts: PostCreateNestedManyWithoutAuthorInput
   profileUrl: String!
+  updatedAt: DateTime
 }
 
 input AuthorCreateNestedOneWithoutPostsInput {
@@ -36,17 +40,21 @@ input AuthorCreateOrConnectWithoutPostsInput {
 
 input AuthorCreateWithoutPostsInput {
   avatar: String!
+  createdAt: DateTime
   id: String
   name: String!
   profileUrl: String!
+  updatedAt: DateTime
 }
 
 input AuthorOrderByWithRelationInput {
   avatar: SortOrder
+  createdAt: SortOrder
   id: SortOrder
   name: SortOrder
   posts: PostOrderByRelationAggregateInput
   profileUrl: SortOrder
+  updatedAt: SortOrder
 }
 
 input AuthorRelationFilter {
@@ -56,17 +64,21 @@ input AuthorRelationFilter {
 
 enum AuthorScalarFieldEnum {
   avatar
+  createdAt
   id
   name
   profileUrl
+  updatedAt
 }
 
 input AuthorUpdateInput {
   avatar: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   posts: PostUpdateManyWithoutAuthorNestedInput
   profileUrl: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input AuthorUpdateOneWithoutPostsNestedInput {
@@ -81,9 +93,11 @@ input AuthorUpdateOneWithoutPostsNestedInput {
 
 input AuthorUpdateWithoutPostsInput {
   avatar: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   profileUrl: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input AuthorUpsertWithoutPostsInput {
@@ -96,10 +110,12 @@ input AuthorWhereInput {
   NOT: [AuthorWhereInput!]
   OR: [AuthorWhereInput!]
   avatar: StringFilter
+  createdAt: DateTimeFilter
   id: StringFilter
   name: StringFilter
   posts: PostListRelationFilter
   profileUrl: StringFilter
+  updatedAt: DateTimeFilter
 }
 
 input AuthorWhereUniqueInput {

@@ -15,4 +15,10 @@ export class AuthorMaxAggregateInput {
 
     @Field(() => Boolean, {nullable:true})
     profileUrl?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    createdAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    updatedAt?: true;
 }

@@ -19,6 +19,12 @@ export class AuthorGroupBy {
     @Field(() => String, {nullable:false})
     profileUrl!: string;
 
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date | string;
+
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date | string;
+
     @Field(() => AuthorCountAggregate, {nullable:true})
     _count?: AuthorCountAggregate;
 

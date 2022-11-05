@@ -4,7 +4,9 @@ export enum AuthorScalarFieldEnum {
     id = "id",
     name = "name",
     avatar = "avatar",
-    profileUrl = "profileUrl"
+    profileUrl = "profileUrl",
+    createdAt = "createdAt",
+    updatedAt = "updatedAt"
 }
 
 

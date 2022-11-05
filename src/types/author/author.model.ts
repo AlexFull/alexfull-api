@@ -22,6 +22,12 @@ export class Author {
     @Field(() => [Post], {nullable:true})
     posts?: Array<Post>;
 
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date;
+
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date;
+
     @Field(() => AuthorCount, {nullable:false})
     _count?: AuthorCount;
 }

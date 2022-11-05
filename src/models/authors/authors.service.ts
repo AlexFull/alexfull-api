@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { DeleteOneAuthorArgs } from 'src/types/author/delete-one-author.args';
-import { FindManyAuthorArgs } from 'src/types/author/find-many-author.args';
-import { FindUniqueAuthorArgs } from 'src/types/author/find-unique-author.args';
 import { AuthorCreateInput } from 'src/types/author/author-create.input';
 import { AuthorUpdateInput } from 'src/types/author/author-update.input';
 import { Author } from 'src/types/author/author.model';
+import { DeleteOneAuthorArgs } from 'src/types/author/delete-one-author.args';
+import { FindManyAuthorArgs } from 'src/types/author/find-many-author.args';
+import { FindUniqueAuthorArgs } from 'src/types/author/find-unique-author.args';
 
 @Injectable()
 export class AuthorsService {

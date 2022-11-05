@@ -3,8 +3,10 @@ generator client {
 }
 
 generator nestgraphql {
-  provider = "node node_modules/prisma-nestjs-graphql"
-  output   = "../src/types"
+  provider               = "node node_modules/prisma-nestjs-graphql"
+  output                 = "../src/types"
+  fields_Validator_from  = "class-validator"
+  fields_Validator_input = true
 }
 
 datasource db {
@@ -37,11 +39,20 @@ model Category {
 }
 
 model Author {
-  id         String @id @default(uuid())
-  name       String
-  avatar     String
+  id String @id @default(uuid())
+
+  /// @Validator.IsNotEmpty()
+  name String
+
+  /// @Validator.IsNotEmpty()
+  avatar String
+
+  /// @Validator.IsNotEmpty()
   profileUrl String
   posts      Post[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("authors")
 }

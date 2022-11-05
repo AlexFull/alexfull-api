@@ -15,4 +15,10 @@ export class AuthorMinAggregate {
 
     @Field(() => String, {nullable:true})
     profileUrl?: string;
+
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
 }
